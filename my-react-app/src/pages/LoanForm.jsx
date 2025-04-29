@@ -32,19 +32,23 @@ function LoanForm() {
   const [reasonSelected, setReasonSelected] = useState(null);
   const [email, setEmail] = useState("");
   const [dateOfBrith, setDateOfBrith] = useState(null);
-  const[ssn,SetSsn]=useState(null);
-  const[driversLicenseNumber,setDriverLicenseNumber]=useState(undefined)
-  const[state,setState]=useState(null)
-
+  const [ssn, SetSsn] = useState(null);
+  const [driversLicenseNumber, setDriverLicenseNumber] = useState(undefined);
+  const [state, setState] = useState(null);
+  const [firstName, setFirstName] = useState("");
+  const [middleName, setMiddleName] = useState(null);
+  const [lastName, setLastName] = useState("");
+  const [employerName, setEmployerName] = useState("");
+  const [netMonthlyIncome, setNetMonthlyIncome] = useState(undefined);
   return (
     <>
       <div>
         <h1>Loan Application</h1>
         <hr />
         <form action="#" className="mainForm">
-          <fieldset className="LoanStart Field">
+          <fieldset className="LoanStart">
             <legend>Loan Information</legend>
-            <fieldset className="Field">
+            <fieldset>
               <legend>Credit Type</legend>
               <input type="radio" name="" id="" />
               Individual
@@ -62,6 +66,7 @@ function LoanForm() {
             <br />
             <label htmlFor="">Reason for loan</label>
             <br />
+
             <select
               name=""
               id=""
@@ -69,7 +74,7 @@ function LoanForm() {
               onChange={(e) => setReasonSelected(e.target.value)}
             >
               <option value="">Personal Loan</option>
-              <option value="">Auto Loan</option>
+              <option value="">Auto Purchase</option>
             </select>
             <br />
 
@@ -79,146 +84,190 @@ function LoanForm() {
               onChange={(e) => setPurpose(e.target.value)}
             />
           </fieldset>
-          <br />
           <span>
             <p>Primary Borrower</p>
           </span>
           <hr />
-          <fieldset className="Field">
+          <fieldset className="basic-Information">
             <legend>Basic Information</legend>
-            <TextField
-              title="First Name"
-              value={purpose}
-              onChange={(e) => setPurpose(e.target.value)}
-            />
-            <label htmlFor="">Middle Name </label>
-            <input type="text" />
-            <TextField
-              title="Last Name"
-              value={purpose}
-              onChange={(e) => setPurpose(e.target.value)}
-            />
-            <label htmlFor="">Suffix</label>
-            <input type="text" />
-            <DataField caption="Home Phone" />
+            <div className="basic-Info">
+              <div className="half-inputs">
+                <TextField
+                  title="First Name"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+                <br />
 
-            <TextField
-              title="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-              type="date"
-              value={dateOfBrith}
-              onChange={(e) => setDateOfBrith(e.target.value)}
-            />
+                <TextField
+                  title="Middle Name"
+                  value={middleName}
+                  onChange={(e) => setMiddleName(e.target.value)}
+                />
+                <br />
 
-       <DataField
-       value={ssn}
-       onChange={(e) => SetSsn(e.target.value) }
-       caption="SSN"
-       />
-       <DataField
-       value={driversLicenseNumber}
-       onChange={(e)=>setDriverLicenseNumber(e.target.value)}
-       caption="Driver License Number"
-       />
-             <select
-            className="state"
-            value={state}
-            onChange={(e) => setState(e.target.value)}
-          >
-            <option value="AL">Alabama</option>
-            <option value="AK">Alaska</option>
-            <option value="AZ">Arizona</option>
-            <option value="AR">Arkansas</option>
-            <option value="CA">California</option>
-            <option value="CO">Colorado</option>
-            <option value="CT">Connecticut</option>
-            <option value="DE">Delaware</option>
-            <option value="DC">District Of Columbia</option>
-            <option value="FL">Florida</option>
-            <option value="GA">Georgia</option>
-            <option value="HI">Hawaii</option>
-            <option value="ID">Idaho</option>
-            <option value="IL">Illinois</option>
-            <option value="IN">Indiana</option>
-            <option value="IA">Iowa</option>
-            <option value="KS">Kansas</option>
-            <option value="KY">Kentucky</option>
-            <option value="LA">Louisiana</option>
-            <option value="ME">Maine</option>
-            <option value="MD">Maryland</option>
-            <option value="MA">Massachusetts</option>
-            <option value="MI">Michigan</option>
-            <option value="MN">Minnesota</option>
-            <option value="MS">Mississippi</option>
-            <option value="MO">Missouri</option>
-            <option value="MT">Montana</option>
-            <option value="NE">Nebraska</option>
-            <option value="NV">Nevada</option>
-            <option value="NH">New Hampshire</option>
-            <option value="NJ">New Jersey</option>
-            <option value="NM">New Mexico</option>
-            <option value="NY">New York</option>
-            <option value="NC">North Carolina</option>
-            <option value="ND">North Dakota</option>
-            <option value="OH">Ohio</option>
-            <option value="OK">Oklahoma</option>
-            <option value="OR">Oregon</option>
-            <option value="PA">Pennsylvania</option>
-            <option value="RI">Rhode Island</option>
-            <option value="SC">South Carolina</option>
-            <option value="SD">South Dakota</option>
-            <option value="TN">Tennessee</option>
-            <option value="TX">Texas</option>
-            <option value="UT">Utah</option>
-            <option value="VT">Vermont</option>
-            <option value="VA">Virginia</option>
-            <option value="WA">Washington</option>
-            <option value="WV">West Virginia</option>
-            <option value="WI">Wisconsin</option>
-            <option value="WY">Wyoming</option>
-          </select>
-         
-            <fieldset className="Field">
-              <legend>Pirmary</legend>
-              <input type="radio" name="" id="" />
-              Home
-              <input type="radio" name="" id="" />
-              Cell
-            </fieldset>
-            <fieldset className="Field">
-              <legend>Active Military</legend>
-              <input type="radio" name="" id="" />
-              <input type="radio" name="" id="" />
-            </fieldset>
+                <TextField
+                  title="Last Name"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+                <br />
+
+                <label htmlFor="">Suffix</label>
+                <select name="" id="">
+                  <option value="">--Select</option>
+                  <option value="">MD</option>
+                  <option value="">Sr.</option>
+                  <option value="">Esq.</option>
+                  <option value="">Trustee</option>
+                  <option value="">II</option>
+                  <option value="">III</option>
+                  <option value="">Jr.</option>
+
+                  {/* Suffix options are not final */}
+                </select>
+                <br />
+                <DataField caption="Home Phone" />
+
+                <fieldset>
+                  <legend>Pirmary</legend>
+                  <input type="radio" name="" id="" />
+                  Home
+                  <input type="radio" name="" id="" />
+                  Cell
+                </fieldset>
+                <fieldset>
+                  <legend>Active Military</legend>
+                  <input type="radio" name="" id="" />
+                  Yes
+                  <input type="radio" name="" id="" />
+                  No
+                </fieldset>
+              </div>
+              <div>
+                <TextField
+                  title="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <br />
+                <input
+                  type="date"
+                  value={dateOfBrith}
+                  onChange={(e) => setDateOfBrith(e.target.value)}
+                />
+                <br />
+                <DataField
+                  value={ssn}
+                  onChange={(e) => SetSsn(e.target.value)}
+                  caption="SSN"
+                />
+                <br />
+
+                <DataField
+                  value={driversLicenseNumber}
+                  onChange={(e) => setDriverLicenseNumber(e.target.value)}
+                  caption="Driver License Number"
+                />
+                <br />
+                <select
+                  className="state"
+                  value={state}
+                  onChange={(e) => setState(e.target.value)}
+                >
+                  <option value="AL">Alabama</option>
+                  <option value="AK">Alaska</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="AR">Arkansas</option>
+                  <option value="CA">California</option>
+                  <option value="CO">Colorado</option>
+                  <option value="CT">Connecticut</option>
+                  <option value="DE">Delaware</option>
+                  <option value="DC">District Of Columbia</option>
+                  <option value="FL">Florida</option>
+                  <option value="GA">Georgia</option>
+                  <option value="HI">Hawaii</option>
+                  <option value="ID">Idaho</option>
+                  <option value="IL">Illinois</option>
+                  <option value="IN">Indiana</option>
+                  <option value="IA">Iowa</option>
+                  <option value="KS">Kansas</option>
+                  <option value="KY">Kentucky</option>
+                  <option value="LA">Louisiana</option>
+                  <option value="ME">Maine</option>
+                  <option value="MD">Maryland</option>
+                  <option value="MA">Massachusetts</option>
+                  <option value="MI">Michigan</option>
+                  <option value="MN">Minnesota</option>
+                  <option value="MS">Mississippi</option>
+                  <option value="MO">Missouri</option>
+                  <option value="MT">Montana</option>
+                  <option value="NE">Nebraska</option>
+                  <option value="NV">Nevada</option>
+                  <option value="NH">New Hampshire</option>
+                  <option value="NJ">New Jersey</option>
+                  <option value="NM">New Mexico</option>
+                  <option value="NY">New York</option>
+                  <option value="NC">North Carolina</option>
+                  <option value="ND">North Dakota</option>
+                  <option value="OH">Ohio</option>
+                  <option value="OK">Oklahoma</option>
+                  <option value="OR">Oregon</option>
+                  <option value="PA">Pennsylvania</option>
+                  <option value="RI">Rhode Island</option>
+                  <option value="SC">South Carolina</option>
+                  <option value="SD">South Dakota</option>
+                  <option value="TN">Tennessee</option>
+                  <option value="TX">Texas</option>
+                  <option value="UT">Utah</option>
+                  <option value="VT">Vermont</option>
+                  <option value="VA">Virginia</option>
+                  <option value="WA">Washington</option>
+                  <option value="WV">West Virginia</option>
+                  <option value="WI">Wisconsin</option>
+                  <option value="WY">Wyoming</option>
+                </select>
+              </div>
+            </div>
           </fieldset>
           <br />
 
           <fieldset>
             <legend>Address</legend>
+            At least 24 months of residence history are required.
             <fieldset>
               <legend>Current Address</legend>
+
               <label htmlFor="">Street</label>
+              <br />
               <input type="text" />
+              <br />
               <label htmlFor="">City</label>
+              <br />
               <input type="text" />
+              <br />
               <label htmlFor="">state</label>
+              <br />
               <input type="text" />
+              <br />
               <label htmlFor="">ZipCode</label>
+              <br />
               <input type="number" name="" id="" />
+              <br />
               <label htmlFor="">Years</label>
+              <br />
               <input type="number" />
+              <br />
               <label htmlFor="">Months</label>
+              <br />
               <input type="month" name="" id="" />
-              <fieldset>
+              <fieldset className="differnt-Mailing ">
                 <legend>Mailing address is different</legend>
-                <input type="radio" name="" id="" />
-                <input type="radio" name="" id="" />
+                <input type="radio" name="" id="" />Yes
+                <input type="radio" name="" id="" />No
               </fieldset>
             </fieldset>
-            <fieldset>
+            <fieldset className="previous-Address">
               <legend>Previous Address</legend>
               <label htmlFor="">Street</label>
               <input type="text" />
@@ -238,14 +287,21 @@ function LoanForm() {
 
           <fieldset>
             <legend>Housing Status</legend>
-            <input type="text" />
-
+            <label htmlFor="">Housing Status</label>
+            <select name="" id="">
+              <option value="">Own Home</option>
+              <option value="">Live with Parents </option>
+              <option value="">Other</option>
+              <option value="">Renting</option>
+              <option value="">Buying Home</option>
+            </select>
+            <br />
             <label htmlFor="">Monthly Amount($)</label>
             <input type="number" name="" id="" />
           </fieldset>
           <br />
           <span>
-            <p>Financail Information</p>
+            <p>Financial Information</p>
           </span>
           <hr />
 
@@ -261,16 +317,55 @@ function LoanForm() {
             <fieldset>
               <legend>Primary Borrower</legend>
               <title>Primary income</title>
-              <input type="text" />
-              <input type="text" />
-              <input type="text" />
-              <input type="text" />
-              <input type="text" />
-              <input type="text" />
-              <input type="text" />
-              <input type="text" />
-              <input type="text" />
-              <input type="text" />
+              <select name="" id="">
+                <option value="">-- Select</option>
+                <option value=""></option>
+              </select>
+
+              <div className="afterSelect">
+                <TextField
+                  title="Employer Name "
+                  value={employerName}
+                  onChange={(e) => setEmployerName(e.target.value)}
+                />
+                <DataField
+                  value={netMonthlyIncome}
+                  onChange={(e) => setNetMonthlyIncome(e.target.value)}
+                  caption="Net Monthly Income ($)"
+                />
+
+                <label htmlFor="">Years</label>
+                <br />
+                <input type="number" />
+
+                <label htmlFor="">Months</label>
+                <br />
+                <input type="month" name="" id="" />
+                <DataField caption="Work Phone" />
+
+                <label htmlFor="">Income Type</label>
+                <select name="" id="">
+                  <option value="">-- Select</option>
+                  <option value="">Salaried</option>
+                  <option value="">Hourly</option>
+                  <option value="">Self Employed</option>
+                </select>
+
+                <label htmlFor="">Shift Worked </label>
+                <select name="" id="">
+                  <option value="">-- Select</option>
+                  <option value="">Full Time</option>
+                  <option value="">Part Time +30 Hrs </option>
+                  <option value="">Part Time -30 Hrs </option>
+                </select>
+                <label htmlFor="">City</label>
+                <br />
+                <input type="text" />
+                <br />
+                <label htmlFor="">state</label>
+                <br />
+                <input type="text" />
+              </div>
             </fieldset>
             <Button>Add Borrower income</Button>
           </fieldset>

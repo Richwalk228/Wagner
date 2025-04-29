@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Button } from "reactstrap";
+import Logo from  '../pictures/Wagner-logo.jpg';
 
 function Resume() {
   const [referenceNumber, setreferenceNumber] = useState("");
@@ -8,6 +10,7 @@ function Resume() {
 
   return (
     <>
+      <img src={Logo} alt="" />
       <div className="Resume-container">
         <h3>Resume Application</h3>
         <hr />
@@ -47,7 +50,13 @@ function Resume() {
           value={dateOfBrith}
           onChange={(e) => setDateOfBrith(e.target.value)}
         />
+<br />
+<div>
+        <Button>GO BACK</Button>
+        <Button>RESUME APPlICATION</Button>
+        </div>
       </div>
+    
     </>
   );
 }

@@ -25,7 +25,6 @@ ul {
   width: 60px;
 }
 
-
 li a {
   display: block;
 }
@@ -41,23 +40,21 @@ li a {
   bottom: 0;
   left: 0;
 }
-.Mappin{
-
+.Mappin {
   position: absolute;
   height: 40px;
   left: 0;
 }
 
-.applyNow{
+.applyNow {
   position: absolute;
   top: 200px;
   left: 0;
 }
 
-
 .active {
   font-weight: bold;
-  color: rgb(9, 255, 0); 
+  color: rgb(9, 255, 0);
 }
 
 .notActive {
@@ -79,17 +76,16 @@ li a {
 }
 
 .login-box img {
- position: relative;
- top: -40px;
- justify-content: center;
- align-items: center;
- left: 0px; 
- height: 60px;
+  position: relative;
+  top: -40px;
+  justify-content: center;
+  align-items: center;
+  left: 0px;
+  height: 60px;
 }
 
 .login-box .user-box {
   position: relative;
-
 }
 
 .login-box .user-box input {
@@ -158,7 +154,7 @@ li a {
   left: -110fpx;
 }
 .createAccount {
-padding: 0;
+  padding: 0;
 }
 
 .Registration h1 {
@@ -275,40 +271,39 @@ padding: 0;
   background: #efefef;
   text-align: center;
 }
-.Dash{
+.Dash {
   position: absolute;
   top: 0;
 }
-.w-lo{
+.w-lo {
   position: relative;
   align-items: center;
   justify-content: center;
   align-content: center;
-  color : rgb(155, 155, 155);
+  color: rgb(155, 155, 155);
   display: flex;
 }
-.loInfo-Container{
+.loInfo-Container {
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(42, 42, 42, 0.35) 0px 0px 3px 0px;
-  box-sizing :border-box;
-  color : rgb(155, 155, 155);
+  box-sizing: border-box;
+  color: rgb(155, 155, 155);
   display: block;
   font-family: Roboto, Helvetica, Arial, sans-serif;
-  font-size : 14px;
-  font-weight :400;
-  height :707.812px;
-  letter-spacing :0.7px;
-  line-height :24.0001px;
-  padding-bottom :30px;
-  padding-left :20px;
-  padding-right :20px;
-  padding-top :30px;
-  text-align :left;
-  text-size-adjust :100%;
-  unicode-bidi :isolate;
-  width :333.297px;
-  -webkit-tap-highlight-color : rgba(0, 0, 0, 0) ;
-
+  font-size: 14px;
+  font-weight: 400;
+  height: 707.812px;
+  letter-spacing: 0.7px;
+  line-height: 24.0001px;
+  padding-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 30px;
+  text-align: left;
+  text-size-adjust: 100%;
+  unicode-bidi: isolate;
+  width: 333.297px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .embla {
@@ -324,16 +319,31 @@ padding: 0;
   width: 500px;
 }
 
-.mapdivs{
+.mapdivs {
   height: 350px;
   width: 300px;
 }
-.application-Start{
-justify-content: center;
-align-items: center;
-background-color: #8a8a8a79;  
-text-align: start;
-width: 400px;
+.application-Start {
+  justify-content: center;
+  align-items: end;
+  background-color: #8a8a8a79;
+  text-align: start;
+  width: 400px;
+  position: absolute;
+  top: 100px;
+  display: block;
+  font-size: medium;
+}
+.startLoan {
+  padding: 10px;
+}
+
+.startLoan button {
+  justify-content: end;
+  align-content: end;
+  align-items: end;
+  text-align: center;
+  position: relative;
 }
 p {
   display: block;
@@ -344,54 +354,61 @@ p {
   unicode-bidi: isolate;
 }
 
-.Disclosure-Agreement{
-width: 700px;
-text-align: start;
-background-color: #bdbdbd;
-border-radius: 10px;
-
-}
-fieldset{
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-.Field{
-border: 1px solid black;
-border-radius: 5px;
-border-style: solid;
-}
-legend {
-  background-color: #ffffff;
-  color: #000000;
-  padding: 3px 6px;
+.Disclosure-Agreement {
+  width: 700px;
+  text-align: start;
+  background-color: #bdbdbd;
+  border-radius: 10px;
 }
 
-.loanApplication{
-margin: 0.4rem;
+.loanApplication {
+  margin: 0.4rem;
 }
-.disclose{
-  font-size: smaller;
-}
-.LoanStart{
+
+.LoanStart {
   justify-content: center;
   align-content: start;
   text-align: start;
 }
-.mainForm{
-width: 500px;
-
+.mainForm {
+  width: 500px;
+  background-color: #fffffff6;
 }
 
-.mainForm legend{
-font-size: larger;
-justify-content: start;
-text-align: start;
-font-weight: bolder;
-
+.mainForm legend {
+  font-size: larger;
+  justify-content: start;
+  text-align: start;
+  font-weight: bolder;
 }
-.Resume-container{
-align-items: start;
-justify-content: center;
-align-content: start;
+.Resume-container {
+  align-items: start;
+  justify-content: center;
+  align-content: start;
+}
+.basic-Info{
+display: flex;
+}
+label{
+  position: relative;
+  left: 0;
+}
+.previous-Address{
+display: none;
+}
+
+.afterSelect{
+display: none;
+}
+
+.differnt-Mailing{
+  display: flex;
+}
+input, textarea, select {
+  width: 100%;
+  margin: 5px 0;
+  padding: 2px 5px;
+  background-color: #eeeeee;
+  border-radius: 2px;
+  border: 1px solid #757575;
 }

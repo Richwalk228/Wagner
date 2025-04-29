@@ -35,16 +35,17 @@ function NewLoan() {
             program that addresses your needs.
           </p>
         </span>
-        <div>
-          <h5>Borrow Amount</h5>
+      <fieldset>
+        <legend> Loan Information</legend>
+          <h3>Borrow Amount</h3>
           <input
             type="number"
             onChange={(e) => setBorrowAmount(e.target.value)}
             value={borrowAmount}
           />
-        </div>
-        <div className="">
-          <h5>Primary Borrower</h5>
+        </fieldset>
+        <fieldset >
+        <legend><h2>Primary Borrower</h2></legend>
           <input
             type="text"
             onChange={(e) => setStreetAddress(e.target.value)}
@@ -65,7 +66,7 @@ function NewLoan() {
             onChange={(e) => setZipCode(e.target.value)}
             value={zipCode}
           />
-        </div>
+        </fieldset>
         <Button tag={Link} to={'/Disclosures'}>Next</Button>
       </div>
     </>

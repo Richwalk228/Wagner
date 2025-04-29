@@ -10,7 +10,7 @@ function ApplyNow() {
       <div className="application-Start">
         <h3>Start Application</h3>
         <hr />
-        <div>
+        <div className="startLoan">
           <h5>
             New Application
             <hr />
@@ -26,9 +26,9 @@ function ApplyNow() {
             Start New Application
           </Button>
         </div>
-        <br />
-        <div>
+        <div className="startLoan">
           <h5>Resume Your Application</h5>
+          <hr />
           <p>
             If you previously started an application and were unable to complete
             it, you have the option of doing so now. In order to resume an

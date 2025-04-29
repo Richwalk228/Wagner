@@ -334,12 +334,12 @@ or email us at: wfs@wagner-financial.com
 
         </Modal>
           <div>
-            <fieldset className="Field">
-              <legend className="disclose"><span><p>
+            <fieldset >
+              <legend>
               I certify that I have read and agree to the privacy policy and the
-              terms and conditions.</p></span>
+              terms and conditions.
               </legend>
-              <input type="radio" name="" id="" />
+              <input type="radio" />
                 No
                 <input type="radio" />
                 Yes
