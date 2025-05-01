@@ -27,6 +27,7 @@ function TextField(props) {
 }
 
 function LoanForm() {
+  const [creditType, setCreditType] = useState("");
   const [amountRequested, setAmountRequested] = useState("");
   const [purpose, setPurpose] = useState("");
   const [reasonSelected, setReasonSelected] = useState(null);
@@ -34,28 +35,80 @@ function LoanForm() {
   const [dateOfBrith, setDateOfBrith] = useState(null);
   const [ssn, SetSsn] = useState(null);
   const [driversLicenseNumber, setDriverLicenseNumber] = useState(undefined);
-  const [state, setState] = useState(null);
+  const [driverLicenseState, setDriverLicenseState] = useState(null);
   const [firstName, setFirstName] = useState("");
   const [middleName, setMiddleName] = useState(null);
   const [lastName, setLastName] = useState("");
+  const [suffix, setSuffix] = useState("");
+  const [previousAddress, setPreviousAddress] = useState(false);
+  const[seletedHousing,setSelectedHousing]=useState('')
+  
+  const [errors, setErrors] = useState(
+    { firstname: "Missing firstname" },
+    { lastName: "Missing lastnmae" },
+    { address: "Missing address" },
+    { city: "Missing city" },
+    { zipCode: "Missing zipcode" },
+    { cellNumber: "Missing number" },
+    { state: "Missing state" },
+    { email: "Missing email" },
+    { username: "Missing Username" },
+    { password: "Missing password" }
+  );
+
+  const handleHousing = () => {
+    setSelectedHousing(e.target.value);
+  }
+
+  const togglepreviousAddress = () => {
+    setPreviousAddress(!previousAddress);
+  };
+
   const [employerName, setEmployerName] = useState("");
   const [netMonthlyIncome, setNetMonthlyIncome] = useState(undefined);
+
+  const handleCredit = (e) => {
+    setCreditType(e.target.value);
+    console.log(creditType);
+  };
   return (
     <>
-      <div>
-        <h1>Loan Application</h1>
+      <fieldset>
+        <h2>Loan Application</h2>
         <hr />
         <form action="#" className="mainForm">
           <fieldset className="LoanStart">
             <legend>Loan Information</legend>
-            <fieldset>
+            <fieldset className="fieldset">
               <legend>Credit Type</legend>
-              <input type="radio" name="" id="" />
+              <input
+                type="radio"
+                value="Individual"
+                checked={creditType === "Individual"}
+                onChange={handleCredit}
+              />
               Individual
-              <input type="radio" />
+              <input
+                type="radio"
+                value="Joint"
+                checked={creditType === "Joint"}
+                onChange={handleCredit}
+              />
               Joint
-              <input type="checkbox" name="" id="" /> Relying on income or
-              assests of another person
+              <br />
+              <input
+                type="radio"
+                name=""
+                id=""
+                value="Relying on income or
+              assests of another person"
+                checked={
+                  creditType ===
+                  "Relying on income or assests of another person"
+                }
+                onChange={handleCredit}
+              />{" "}
+              Relying on income or assests of another person
             </fieldset>
 
             <DataField
@@ -116,13 +169,13 @@ function LoanForm() {
                 <label htmlFor="">Suffix</label>
                 <select name="" id="">
                   <option value="">--Select</option>
-                  <option value="">MD</option>
-                  <option value="">Sr.</option>
-                  <option value="">Esq.</option>
-                  <option value="">Trustee</option>
-                  <option value="">II</option>
-                  <option value="">III</option>
-                  <option value="">Jr.</option>
+                  <option value="MD">MD</option>
+                  <option value="Sr.">Sr.</option>
+                  <option value="Esq.">Esq.</option>
+                  <option value="Trustee">Trustee</option>
+                  <option value="II">II</option>
+                  <option value="III">III</option>
+                  <option value="Jr">Jr.</option>
 
                   {/* Suffix options are not final */}
                 </select>
@@ -144,7 +197,7 @@ function LoanForm() {
                   No
                 </fieldset>
               </div>
-              <div>
+              <div className="half-inputs">
                 <TextField
                   title="email"
                   value={email}
@@ -170,10 +223,12 @@ function LoanForm() {
                   caption="Driver License Number"
                 />
                 <br />
+                <label htmlFor="">Driver License State</label>
+                <br />
                 <select
                   className="state"
-                  value={state}
-                  onChange={(e) => setState(e.target.value)}
+                  value={driverLicenseState}
+                  onChange={(e) => setDriverLicenseState(e.target.value)}
                 >
                   <option value="AL">Alabama</option>
                   <option value="AK">Alaska</option>
@@ -232,12 +287,12 @@ function LoanForm() {
           </fieldset>
           <br />
 
-          <fieldset>
+          <fieldset className="address">
             <legend>Address</legend>
             At least 24 months of residence history are required.
-            <fieldset>
-              <legend>Current Address</legend>
-
+            <fieldset className="current-Address">
+              Current Address
+              <hr />
               <label htmlFor="">Street</label>
               <br />
               <input type="text" />
@@ -263,43 +318,52 @@ function LoanForm() {
               <input type="month" name="" id="" />
               <fieldset className="differnt-Mailing ">
                 <legend>Mailing address is different</legend>
-                <input type="radio" name="" id="" />Yes
-                <input type="radio" name="" id="" />No
+                <input type="radio" name="" id="" />
+                Yes
+                <input type="radio" name="" id="" />
+                No
               </fieldset>
             </fieldset>
-            <fieldset className="previous-Address">
-              <legend>Previous Address</legend>
-              <label htmlFor="">Street</label>
-              <input type="text" />
-              <label htmlFor="">City</label>
-              <input type="text" />
-              <label htmlFor="">state</label>
-              <input type="text" />
-              <label htmlFor="">Zip</label>
-              <input type="number" name="" id="" />
-              <label htmlFor="">Years</label>
-              <input type="number" />
-              <label htmlFor="">Months</label>
-              <input type="month" name="" id="" />
-            </fieldset>
-            <Button>Add previous address</Button>
+            {previousAddress && (
+              <fieldset className="previous-Address">
+                <legend>Previous Address</legend>
+                <label htmlFor="">Street</label>
+                <input type="text" />
+                <label htmlFor="">City</label>
+                <input type="text" />
+                <label htmlFor="">state</label>
+                <input type="text" />
+                <label htmlFor="">Zip</label>
+                <input type="number" name="" id="" />
+                <label htmlFor="">Years</label>
+                <input type="number" />
+                <label htmlFor="">Months</label>
+                <input type="month" name="" id="" />
+              </fieldset>
+            )}
+            <Button onClick={togglepreviousAddress}>
+              Add previous address{previousAddress ? "" : ""}
+            </Button>
           </fieldset>
 
           <fieldset>
             <legend>Housing Status</legend>
             <label htmlFor="">Housing Status</label>
-            <select name="" id="">
-              <option value="">Own Home</option>
-              <option value="">Live with Parents </option>
-              <option value="">Other</option>
-              <option value="">Renting</option>
-              <option value="">Buying Home</option>
+           
+           
+            <select id="housing-Options" value={seletedHousing} onChange={handleHousing}>
+              <option value="Own Home">Own Home</option>
+              <option value="Live with Parents">Live with Parents </option>
+              <option value="Other">Other</option>
+              <option value="Renting">Renting</option>
+              <option value="Buying Home">Buying Home</option>
             </select>
             <br />
             <label htmlFor="">Monthly Amount($)</label>
             <input type="number" name="" id="" />
           </fieldset>
           <br />
+
           <span>
             <p>Financial Information</p>
           </span>
@@ -372,7 +436,7 @@ function LoanForm() {
           <hr />
           <Button>Continue To Submit</Button>
         </form>
-      </div>
+      </fieldset>
     </>
   );
 }

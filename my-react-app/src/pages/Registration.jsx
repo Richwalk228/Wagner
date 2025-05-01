@@ -14,6 +14,7 @@ function Registration() {
 
   const emptyPerson = {
     firstName: undefined,
+    middleName: undefined,
     lastName: undefined,
     SSN: undefined,
     cellNumber: undefined,
@@ -43,34 +44,33 @@ function Registration() {
       </h1>
 
       <div className="registration-Container">
-        <div>
+        <div className="registraion-Inputs ">
           <input
             className="identify"
             type="text"
-            placeholder="Firstname"
+            placeholder="First Name"
             value={person.firstName}
             onChange={(e) => handleChange("firstName", e)}
+            required
+          />
+          <input
+            className="identify"
+            type="text"
+            placeholder="Middle Name"
+            value={person.middleName}
+            onChange={(e) => handleChange("middlename", e)}
             required
           />
 
           <input
             className="identify"
             type="text"
-            placeholder="Lastname"
+            placeholder="Last Name"
             value={person.lastName}
             onChange={(e) => handleChange("lastName", e)}
             required
           />
         </div>
-        <input
-          className="DOB"
-          type="date"
-          id="birthday"
-          name="birthday"
-          value={person.dateOfBrith}
-          onChange={(e) => handleChange("dateOfBrith", e)}
-          required
-        />
 
         <input
           className="identify email"
@@ -90,6 +90,16 @@ function Registration() {
           onChange={(e) => handleChange("SSN", e)}
           required
         />
+        <input
+          className="DOB"
+          type="date"
+          id="birthday"
+          name="birthday"
+          value={person.dateOfBrith}
+          onChange={(e) => handleChange("dateOfBrith", e)}
+          required
+        />
+
         <input
           className="password"
           type="password"

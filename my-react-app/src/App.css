@@ -3,11 +3,11 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 ul {
   list-style-type: none;
 }
-
 .sidebar {
   position: absolute;
   top: 0;
@@ -60,6 +60,39 @@ li a {
 .notActive {
   font-weight: bold;
   color: black;
+}
+fieldset {
+  display: block;
+  min-inline-size: min-content;
+  margin-inline: 2px;
+  border-width: 2px;
+  border-radius: 10px;
+  border-style: groove;
+  border-color: black;
+  border-image: initial;
+  padding-block: 0.35em 0.625em;
+  padding-inline: 0.75em;
+  background-color: #a1a1a1;
+}
+.fieldset {
+  margin: 0 0 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  font-size: 10px;
+  display: flex;
+  height: 70px;
+  font-size: small;
+  
+}
+
+.fieldset text{
+  position: relative;
+padding-top: 10px;
+}
+
+
+.current-Address{
+text-align: start;
+
 }
 
 .login-box {
@@ -325,14 +358,15 @@ li a {
 }
 .application-Start {
   justify-content: center;
-  align-items: end;
-  background-color: #8a8a8a79;
+  align-items: center;
+  background-color: #ebe8e8;
   text-align: start;
   width: 400px;
-  position: absolute;
   top: 100px;
   display: block;
   font-size: medium;
+  border: #000000;
+  border-width: 10px;
 }
 .startLoan {
   padding: 10px;
@@ -372,7 +406,8 @@ p {
 }
 .mainForm {
   width: 500px;
-  background-color: #fffffff6;
+  background-color: #9c9c9cf6;
+  border-radius: 10px;
 }
 
 .mainForm legend {
@@ -381,34 +416,55 @@ p {
   text-align: start;
   font-weight: bolder;
 }
+
+.mainForm input {
+}
 .Resume-container {
   align-items: start;
   justify-content: center;
   align-content: start;
 }
-.basic-Info{
-display: flex;
+.basic-Info {
+  display: flex;
 }
-label{
+label {
   position: relative;
   left: 0;
 }
-.previous-Address{
-display: none;
+
+
+.afterSelect {
+  display: none;
 }
 
-.afterSelect{
-display: none;
-}
-
-.differnt-Mailing{
+.differnt-Mailing {
   display: flex;
 }
-input, textarea, select {
-  width: 100%;
-  margin: 5px 0;
-  padding: 2px 5px;
-  background-color: #eeeeee;
-  border-radius: 2px;
-  border: 1px solid #757575;
+
+.lghpadding {
+  padding-right: 20px !important;
+  padding-left: 20px !important;
 }
+.innersection {
+  position: relative;
+}
+
+.topline {
+  background-color: #3c4fe0;
+  height: 3px;
+}
+
+.applybtn {
+  border-color: #000000;
+  border-radius: 10px;
+  background-color: #000000;
+  border-left-width: 10px;
+  justify-content: end;
+  align-items: end;
+  padding: 0 2px;
+}
+
+.registraion-Inputs {
+  display: flex;
+}
+
